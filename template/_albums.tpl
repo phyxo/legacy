@@ -1,8 +1,8 @@
 <div class="loader"><img src="{$ROOT_URL}themes/legacy/images/ajax_loader.gif" alt="!"></div>
 <ul class="thumbnailCategories">
     {foreach $category_thumbnails as $cat}
-	{assign var=derivative value=$pwg->derivative($derivative_album_params, $cat.representative.src_image)}
-	{if !$derivative->is_cached()}
+	{assign var=album_derivative value=$pwg->derivative($derivative_album_params, $cat.representative.src_image)}
+	{if !$album_derivative->is_cached()}
 	    {combine_script id='jquery.ajaxmanager' path='themes/legacy/js/plugins/jquery.ajaxmanager.js' load='footer'}
 	    {combine_script id='thumbnails.loader' path='themes/legacy/js/thumbnails.loader.js' require='jquery.ajaxmanager' load='footer'}
 	{/if}
@@ -10,7 +10,7 @@
 	    <div class="thumbnailCategory">
 		<div class="illustration">
 		    <a href="{$cat.URL}">
-			<img {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="themes/legacy/images/img_small.png" data-src="{$derivative->get_url()}"{/if} alt="{$cat.TN_ALT}" title="{$cat.NAME|@replace:'"':' '|@strip_tags:false} - {'display this album'|translate}">
+			<img {if $album_derivative->is_cached()}src="{$album_derivative->getUrl()}"{else}src="themes/legacy/images/img_small.png" data-src="{$album_derivative->getUrl()}"{/if} alt="{$cat.TN_ALT}" title="{$cat.NAME|@replace:'"':' '|@strip_tags:false} - {'display this album'|translate}">
 		    </a>
 		</div>
 		<div class="description">

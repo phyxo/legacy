@@ -33,15 +33,8 @@
 	{if isset($U_PREFETCH)    }<link rel="prefetch" href="{$U_PREFETCH}">{/if}
 	{if isset($U_CANONICAL)   }<link rel="canonical" href="{$U_CANONICAL}">{/if}
 
-	{foreach $themes as $theme}
-	    {if $theme.load_css}
-		{combine_css path="{$ROOT_URL}themes/`$theme.id`/css/style.css" order=-10}
-		<link rel="stylesheet" href="{$ROOT_URL}themes/{$theme.id}/css/style.css">
-	    {/if}
-	    {if !empty($theme.local_head)}
-		{include file=$theme.local_head load_css=$theme.load_css}
-	    {/if}
-	{/foreach}
+	<link rel="stylesheet" href="{$ROOT_URL}themes/legacy/css/style.css">
+	{include file="local_head.tpl"}
 
 	{combine_script id="legacy-jquery" path="{$ROOT_URL}themes/legacy/js/jquery.js"}
 

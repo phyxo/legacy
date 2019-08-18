@@ -40,7 +40,7 @@
 			<div class="switchBoxTitle">{'Photo sizes'|translate}</div>
 			{foreach from=$current.unique_derivatives item=derivative key=derivative_type}
 			    <span class="switchCheck" id="derivativeChecked{$derivative->get_type()}"{if $derivative->get_type() ne $current.selected_derivative->get_type()} style="visibility:hidden"{/if}>&#x2714; </span>
-			    <a href="javascript:changeImgSrc('{$derivative->get_url()|@escape:javascript}','{$derivative_type}','{$derivative->get_type()}')">
+			    <a href="javascript:changeImgSrc('{$derivative->getUrl()|@escape:javascript}','{$derivative_type}','{$derivative->get_type()}')">
 				{$derivative->get_type()|translate}<span class="derivativeSizeDetails"> ({$derivative->get_size_hr()})</span>
 			    </a><br>
 			{/foreach}
@@ -127,7 +127,7 @@
 
     <div id="theImageAndInfos">
 	<div id="theImage">
-	    {$ELEMENT_CONTENT}
+	    {include file='picture_content.tpl'}
 
 	    {if isset($COMMENT_IMG)}
 		<p class="imageComment">{$COMMENT_IMG}</p>
@@ -145,7 +145,7 @@
 		    {if isset($previous)}
 			<a class="navThumb" id="linkPrev" href="{$previous.U_IMG}" title="{'Previous'|translate} : {$previous.TITLE_ESC}" rel="prev">
 			    <span class="thumbHover prevThumbHover"></span>
-			    <img src="{$previous.derivatives.square->get_url()}" alt="{$previous.TITLE_ESC}">
+			    {*<img src="{$previous.derivatives.square->getUrl()}" alt="{$previous.TITLE_ESC}">*}
 			</a>
 		    {elseif isset($U_UP)}
 			<a class="navThumb" id="linkPrev" href="{$U_UP}" title="{'Thumbnails'|translate}">
@@ -155,7 +155,7 @@
 		    {if isset($next)}
 			<a class="navThumb" id="linkNext" href="{$next.U_IMG}" title="{'Next'|translate} : {$next.TITLE_ESC}" rel="next">
 			    <span class="thumbHover nextThumbHover"></span>
-			    <img src="{$next.derivatives.square->get_url()}" alt="{$next.TITLE_ESC}">
+			    {*<img src="{$next.derivatives.square->getUrl()}" alt="{$next.TITLE_ESC}">*}
 			</a>
 		    {elseif isset($U_UP)}
 			<a class="navThumb" id="linkNext"  href="{$U_UP}"  title="{'Thumbnails'|translate}">

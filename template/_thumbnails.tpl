@@ -10,7 +10,7 @@
 	    <span class="wrap1">
 		<span class="wrap2">
 		    <a href="{$thumbnail.URL}">
-			<img class="thumbnail" {if $derivative->is_cached()}src="{$derivative->get_url()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png" data-src="{$derivative->get_url()}"{/if} alt="{$thumbnail.TN_ALT}" title="{$thumbnail.TN_TITLE}">
+			<img class="thumbnail" {if $derivative->is_cached()}src="{$derivative->getUrl()}"{else}src="{$ROOT_URL}{$themeconf.icon_dir}/img_small.png" data-src="{$derivative->getUrl()}"{/if} alt="{$thumbnail.TN_ALT}" title="{$thumbnail.TN_TITLE}">
 		    </a>
 		</span>
 		{if $SHOW_THUMBNAIL_CAPTION }
