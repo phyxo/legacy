@@ -76,11 +76,7 @@
 		{include file="menubar.tpl"}
 	    {/block}
 
-	    {if isset($errors) or isset($infos)}
-		<div class="content messages{if isset($MENUBAR)} contentWithMenu{/if}">
-		    {include file="infos_errors.tpl"}
-		</div>
-	    {/if}
+	    {include file="infos_errors.tpl"}
 
 	    {if !empty($PLUGIN_INDEX_CONTENT_BEFORE)}{$PLUGIN_INDEX_CONTENT_BEFORE}{/if}
 	    <div id="content" class="content{if isset($MENUBAR)} contentWithMenu{/if}">
@@ -215,8 +211,7 @@
 		    {'Page generated in'|translate} {$debug.TIME} ({$debug.NB_QUERIES} {'SQL queries in'|translate} {$debug.SQL_TIME}) -
 		{/if}
 
-		{'Powered by'|translate} <a href="{$PHPWG_URL}">Phyxo</a>
-		{$VERSION}
+		{'Powered by'|translate}&nbsp;<a href="{$PHYXO_URL}">Phyxo</a>&nbsp;{$PHYXO_VERSION}
 		{if isset($CONTACT_MAIL)}
 		    - <a href="mailto:{$CONTACT_MAIL}?subject={'A comment on your site'|translate|@escape:url}">{'Contact webmaster'|translate}</a>
 		{/if}

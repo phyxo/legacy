@@ -11,7 +11,7 @@
 
 /*
 Theme Name: Legacy
-Version: 1.0.0
+Version: 1.0.1
 Description: Legacy theme
 Theme URI: https://ext.phyxo.net/extension_view.php?eid=6
 Author: Nicolas Roudaire

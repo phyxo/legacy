@@ -21,26 +21,26 @@
 	{/if}
     </ul>
     {if isset($U_LOGIN)}
-	<form method="post" action="{$U_LOGIN}" id="quickconnect">
+	<form action="{$login_route}" method="post" name="login_form" id="quickconnect">
 	    <fieldset>
 		<legend>{'Quick connect'|translate}</legend>
 		<div>
 		    <label for="username">{'Username'|translate}</label><br>
-		    <input type="text" name="username" id="username" value="" style="width:99%">
+		    <input type="text" name="_username" id="username" value="" style="width:99%">
 		</div>
 
 		<div><label for="password">{'Password'|translate}</label><br>
-		    <input type="password" name="password" id="password" style="width:99%">
+		    <input type="password" name="_password" id="password" style="width:99%">
 		</div>
 
 		{if $AUTHORIZE_REMEMBERING}
 		    <div><label for="remember_me">
-			<input type="checkbox" name="remember_me" id="remember_me" value="1"> {'Auto login'|translate}
+			<input type="checkbox" name="_remember_me" id="remember_me" value="1"> {'Auto login'|translate}
 		    </label></div>
 		{/if}
 
 		<div>
-		    <input type="hidden" name="redirect" value="{$smarty.server.REQUEST_URI|@urlencode}">
+		    <input type="hidden" name="_csrf_token" value="{$csrf_token}">
 		    <input type="submit" name="login" value="{'Submit'|translate}">
 		    <span class="categoryActions">
 			{if isset($U_REGISTER)}

@@ -59,13 +59,17 @@
 			<span class="property">
 			    <label for="template">{'Theme'|translate}</label>
 			</span>
-			{html_options name=theme options=$template_options selected=$template_selection}
+			<select class="form-control" name="theme">
+			    {html_options options=$themes selected=$THEME}
+			</select>
 		    </li>
 		    <li>
 			<span class="property">
 			    <label for="Language">{'Language'|translate}</label>
 			</span>
-			{html_options name=language options=$language_options selected=$language_selection}
+			<select class="form-control" name="language">
+			    {html_options options=$languages selected=$LANGUAGE}
+			</select>
 		    </li>
 		    <li>
 			<span class="property">
